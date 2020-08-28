@@ -1,0 +1,44 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 8/28/2020 2:17:50 PM
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      : Hello World
+00000000                             3  * Written by : Jordan Martin
+00000000                             4  * Date       : 08/27/2020
+00000000                             5  * Description: Welcome to this big great world, EASY68K.
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000                             9  
+00001000                            10  * Put program code here
+00001000                            11  
+00001000  43F9 00001012             12      LEA MESSAGE, A1             ; Load MESSAGE int address register A1
+00001006  103C 000E                 13      MOVE.B #14, D0              ; Move literal number 14 into data register D0
+0000100A  4E4F                      14      TRAP #15                    ; #14 displays NULL terminated string at A1
+0000100C                            15      
+0000100C  103C 0009                 16      MOVE.B #9, D0               ; #9 terminates program
+00001010  4E4F                      17      TRAP #15                    ; Halt Simulator
+00001012                            18  
+00001012                            19  * Put variables and constants here
+00001012  =0000000D                 20  CR      EQU     $0D             ; ASCII code for Crriage Return
+00001012  =0000000A                 21  LF      EQU     $0A             ; ASCII code for Crriage Return
+00001012= 48 45 4C 4C 4F 20 ...     22  MESSAGE DC.B    'HELLO WORLD',CR,LF ; Place ASCII string in memory at MESSAGE
+0000101F= 49 20 41 4D 20 41 ...     23          DC.B    'I AM ALIVE AND WELL',CR,LF
+00001034= 49 20 61 6D 20 6D ...     24          DC.B    'I am making multiple lines',CR,LF,'in one DC.B statement',CR,LF
+00001067= 49 20 61 6D 20 61 ...     25          DC.B    'I am adding a new line',CR,LF,CR,LF
+00001081= 2E 2E 2E 20 61 6E ...     26          DC.B    '... and finally ending this message!',CR,LF,0
+000010A8                            27  
+000010A8                            28      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+CR                  D
+LF                  A
+MESSAGE             1012
+START               1000
